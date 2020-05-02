@@ -1,0 +1,8 @@
+{
+  "baseLocation": {
+    "doc": "Base Location",
+    "default": "C:\\Users\\ShivanshKuchchal\\GolandProjects\\hedron\\storage",
+    "env": "HEDRON_BASE_LOCATION",
+    "format": "string"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": {
+    "doc": "Node name",
+    "default": "hedron-1",
+    "env": "HEDRON_NODE_NAME",
+    "format": "string"
+  },
+  "password": {
+    "doc": "Node Password",
+    "default": "1234",
+    "env": "HEDRON_NODE_PASSWORD",
+    "format": "string"
+  },
+  "fellows": {
+    "doc": "Other nodes in the cluster",
+    "default": "[]",
+    "env": "HEDRON_FELLOW_NODES",
+    "format": "array"
+  }
+}
