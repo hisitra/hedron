@@ -28,7 +28,7 @@ func (s *server) getHandler() http.Handler {
 	router.HandleFunc("/create", s.Create).Methods("POST", "OPTIONS")
 	router.HandleFunc("/read", s.Read).Methods("POST", "OPTIONS")
 	router.HandleFunc("/update", s.Update).Methods("POST", "OPTIONS")
-	router.HandleFunc("/delete", s.Delete).Methods("POST  ", "OPTIONS")
+	router.HandleFunc("/delete", s.Delete).Methods("POST", "OPTIONS")
 
 	return router
 }
