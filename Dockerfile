@@ -14,7 +14,6 @@ RUN go build -o hedron-bin ./main.go
 RUN source ./cmd/configs.sh
 
 EXPOSE $PORT
-EXPOSE $REST_PORT
 
 CMD ["/hedron/hedron-bin"]
 
