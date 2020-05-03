@@ -15,7 +15,7 @@ A Distributed Key-Value store in Go.
 1. Clone the repositoty.
 2. Navigate to the cloned folder.
 3. Run ```$ ./cmd/build_image.sh``` (Docker must be installed for this to work.)
-4. Run ```docker-compose up -d``
+4. Run ```docker-compose up -d```
 
 This should create a three-node cluster of Hedron.
 
