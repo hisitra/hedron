@@ -38,6 +38,7 @@ func (s *server) Create(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(req)
 	if err != nil {
 		_, _ = fmt.Fprintln(w, iot.BadRequestResponse(""))
+		return
 	}
 
 	output, err := grpcserver.New().Create(context.Background(), req)
@@ -53,6 +54,7 @@ func (s *server) Read(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(req)
 	if err != nil {
 		_, _ = fmt.Fprintln(w, iot.BadRequestResponse(""))
+		return
 	}
 
 	output, err := grpcserver.New().Read(context.Background(), req)
@@ -68,6 +70,7 @@ func (s *server) Update(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(req)
 	if err != nil {
 		_, _ = fmt.Fprintln(w, iot.BadRequestResponse(""))
+		return
 	}
 
 	output, err := grpcserver.New().Update(context.Background(), req)
@@ -83,6 +86,7 @@ func (s *server) Delete(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(req)
 	if err != nil {
 		_, _ = fmt.Fprintln(w, iot.BadRequestResponse(""))
+		return
 	}
 
 	output, err := grpcserver.New().Delete(context.Background(), req)
