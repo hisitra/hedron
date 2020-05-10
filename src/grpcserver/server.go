@@ -39,7 +39,7 @@ func (s *server) Start() {
 	comcn.RegisterExternalServer(grpcServer, s)
 	comcn.RegisterInternalServer(grpcServer, s)
 
-	log.Println("Starting Hedron Node:", configs.Node.Name, "gRPC Server at PORT:", configs.Server.RpcPort)
+	log.Println("Info: Starting Hedron Node:", configs.Node.Name, "gRPC Server at PORT:", configs.Server.RpcPort)
 	err = grpcServer.Serve(listener)
 	if err != nil {
 		panic(err)

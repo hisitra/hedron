@@ -11,7 +11,7 @@ var Storage = &storage{}
 var Events = &events{}
 
 func Load() {
-	log.Println("Loading configs...")
+	log.Println("Info: Loading configs...")
 	confine.LoadAll(map[string]interface{}{
 		"./src/configs/json/server.json":  Server,
 		"./src/configs/json/node.json":    Node,
@@ -19,7 +19,8 @@ func Load() {
 	})
 
 	Events.RequestArrival = "request-arrival"
-	Events.RequestExecuted = "request-executed-"
+	Events.RequestExecutionBegin = "request-execution-begin"
+	Events.RequestExecuted = "request-executed"
 
-	log.Println("Configs loaded successfully.")
+	log.Println("Info: Configs loaded successfully.")
 }

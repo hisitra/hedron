@@ -18,7 +18,7 @@ func New() Server {
 }
 
 func (s *server) Start() {
-	log.Println("Starting Hedron Node:", configs.Node.Name, "REST Server at PORT:", configs.Server.RestPort)
+	log.Println("Info: Starting Hedron Node:", configs.Node.Name, "REST Server at PORT:", configs.Server.RestPort)
 	_ = http.ListenAndServe(":"+s.Port, s.getHandler())
 }
 

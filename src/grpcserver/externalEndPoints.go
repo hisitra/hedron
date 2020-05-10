@@ -14,7 +14,7 @@ func (s *server) Create(ctx context.Context, message *comcn.Message) (*comcn.Mes
 		return &comcn.Message{Value: res.Marshal()}, nil
 	}
 	ventager.Fire(configs.Events.RequestArrival, newReq)
-	finalRes, ok := (<-ventager.Listen(configs.Events.RequestExecuted+newReq.ID)).(*iot.Response)
+	finalRes, ok := (<-ventager.Listen(configs.Events.RequestExecuted + "-" + newReq.ID)).(*iot.Response)
 	if !ok {
 		return &comcn.Message{Value: iot.InternalServerResponse("").Marshal()}, nil
 	}
@@ -27,7 +27,7 @@ func (s *server) Read(ctx context.Context, message *comcn.Message) (*comcn.Messa
 		return &comcn.Message{Value: res.Marshal()}, nil
 	}
 	ventager.Fire(configs.Events.RequestArrival, newReq)
-	finalRes, ok := (<-ventager.Listen(configs.Events.RequestExecuted+newReq.ID)).(*iot.Response)
+	finalRes, ok := (<-ventager.Listen(configs.Events.RequestExecuted + "-" + newReq.ID)).(*iot.Response)
 	if !ok {
 		return &comcn.Message{Value: iot.InternalServerResponse("").Marshal()}, nil
 	}
@@ -40,7 +40,7 @@ func (s *server) Update(ctx context.Context, message *comcn.Message) (*comcn.Mes
 		return &comcn.Message{Value: res.Marshal()}, nil
 	}
 	ventager.Fire(configs.Events.RequestArrival, newReq)
-	finalRes, ok := (<-ventager.Listen(configs.Events.RequestExecuted+newReq.ID)).(*iot.Response)
+	finalRes, ok := (<-ventager.Listen(configs.Events.RequestExecuted + "-" + newReq.ID)).(*iot.Response)
 	if !ok {
 		return &comcn.Message{Value: iot.InternalServerResponse("").Marshal()}, nil
 	}
@@ -53,7 +53,7 @@ func (s *server) Delete(ctx context.Context, message *comcn.Message) (*comcn.Mes
 		return &comcn.Message{Value: res.Marshal()}, nil
 	}
 	ventager.Fire(configs.Events.RequestArrival, newReq)
-	finalRes, ok := (<-ventager.Listen(configs.Events.RequestExecuted+newReq.ID)).(*iot.Response)
+	finalRes, ok := (<-ventager.Listen(configs.Events.RequestExecuted + "-" + newReq.ID)).(*iot.Response)
 	if !ok {
 		return &comcn.Message{Value: iot.InternalServerResponse("").Marshal()}, nil
 	}

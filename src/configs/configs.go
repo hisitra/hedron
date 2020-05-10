@@ -16,6 +16,7 @@ type storage struct {
 }
 
 type events struct {
-	RequestArrival string
-	RequestExecuted string
+	RequestArrival        string
+	RequestExecutionBegin string
+	RequestExecuted       string
 }

@@ -62,6 +62,14 @@ func (r *Request) validate() *Response {
 	return SuccessResponse("")
 }
 
+func (r *Request) IsRead() bool {
+	return r.Mode == "R"
+}
+
+func (r *Request) IsEarlierThan(otherRequest *Request) bool {
+	return r.ArrivedAt.Before(otherRequest.ArrivedAt)
+}
+
 func (r *Request) Marshal() ([]byte, *Response) {
 	reqJSON, err := json.Marshal(r)
 	if err != nil {
