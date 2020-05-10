@@ -7,8 +7,8 @@ type server struct {
 }
 
 type node struct {
-	Name     string   `json:"name"`
-	Fellows  []string `json:"fellows"`
+	Name    string   `json:"name"`
+	Fellows []string `json:"fellows"`
 }
 
 type storage struct {
