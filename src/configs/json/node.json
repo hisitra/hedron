@@ -5,12 +5,6 @@
     "env": "HEDRON_NODE_NAME",
     "format": "string"
   },
-  "password": {
-    "doc": "Node Password",
-    "default": "shivansh",
-    "env": "HEDRON_NODE_PASSWORD",
-    "format": "string"
-  },
   "fellows": {
     "doc": "Other nodes in the cluster",
     "default": "[]",

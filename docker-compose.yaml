@@ -12,7 +12,6 @@ services:
             REST_PORT: "4001"
             HEDRON_REQUEST_TIMEOUT: "5"
             HEDRON_NODE_NAME: "HEDRON-1"
-            HEDRON_NODE_PASSWORD: "shivansh"
             HEDRON_FELLOW_NODES: "[\"hedron-2:3002\",\"hedron-3:3003\"]"
             HEDRON_BASE_LOCATION: "/hedron-data/"
         ports:
@@ -28,7 +27,6 @@ services:
             REST_PORT: "4002"
             HEDRON_REQUEST_TIMEOUT: "5"
             HEDRON_NODE_NAME: "HEDRON-2"
-            HEDRON_NODE_PASSWORD: "shivansh"
             HEDRON_FELLOW_NODES: "[\"hedron-1:3001\",\"hedron-3:3003\"]"
             HEDRON_BASE_LOCATION: "/hedron-data/"
         ports:
@@ -44,7 +42,6 @@ services:
             REST_PORT: "4003"
             HEDRON_REQUEST_TIMEOUT: "5"
             HEDRON_NODE_NAME: "HEDRON-3"
-            HEDRON_NODE_PASSWORD: "shivansh"
             HEDRON_FELLOW_NODES: "[\"hedron-1:3001\",\"hedron-2:3002\"]"
             HEDRON_BASE_LOCATION: "/hedron-data/"
         ports:

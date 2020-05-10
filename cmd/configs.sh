@@ -1,7 +1,6 @@
 #!/bin/sh
 #
 #export HEDRON_NODE_NAME="hedron-1"
-#export HEDRON_NODE_PASSWORD="1234"
 #export HEDRON_FELLOW_NODES="[]"
 #
 #export RPC_PORT="3001"

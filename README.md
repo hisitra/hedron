@@ -38,15 +38,13 @@ The request body for create and update request should look like:
 ```
 {
     "key": "keyName",
-    "value": "anyValue",
-    "nodePassword": "1234"
+    "value": "anyValue"
 }
 ```
 And request body for read and delete requests:
 ```
 {
-    "key": "keyName",
-    "nodePassword": "1234"
+    "key": "keyName"
 }
 ```
 

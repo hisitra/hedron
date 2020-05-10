@@ -8,7 +8,6 @@ type server struct {
 
 type node struct {
 	Name     string   `json:"name"`
-	Password string   `json:"password"`
 	Fellows  []string `json:"fellows"`
 }
 
