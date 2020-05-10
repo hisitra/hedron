@@ -28,13 +28,17 @@ func (s *server) getHandler() http.Handler {
 }
 
 func (s *server) Create(w http.ResponseWriter, r *http.Request) {
+	panic("implement me")
 }
 
 func (s *server) Read(w http.ResponseWriter, r *http.Request) {
+	panic("implement me")
 }
 
 func (s *server) Update(w http.ResponseWriter, r *http.Request) {
+	panic("implement me")
 }
 
 func (s *server) Delete(w http.ResponseWriter, r *http.Request) {
+	panic("implement me")
 }
