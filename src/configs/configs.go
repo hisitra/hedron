@@ -1,7 +1,7 @@
 package configs
 
 type server struct {
-	Port           string `json:"port"`
+	RpcPort        string `json:"rpcPort"`
 	RestPort       string `json:"restPort"`
 	RequestTimeout int    `json:"requestTimeout"`
 }
