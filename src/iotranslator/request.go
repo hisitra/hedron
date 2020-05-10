@@ -25,8 +25,8 @@ func NewRequest(data []byte, mode string) (*Request, *Response) {
 	}
 	newReq.Mode = mode
 
-	if resp := newReq.validate(); !resp.IsSuccessful() {
-		return nil, resp
+	if res := newReq.validate(); !res.IsSuccessful() {
+		return nil, res
 	}
 
 	newReq.ID = uuid.New().String()
@@ -44,8 +44,8 @@ func UnmarshalRequest(data []byte) (*Request, *Response) {
 		return nil, BadRequestResponse("Failed to unmarshal")
 	}
 
-	if resp := req.validate(); !resp.IsSuccessful() {
-		return nil, resp
+	if res := req.validate(); !res.IsSuccessful() {
+		return nil, res
 	}
 
 	return req, SuccessResponse("")

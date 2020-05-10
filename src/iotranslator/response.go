@@ -1,5 +1,7 @@
 package iotranslator
 
+import "fmt"
+
 type Response struct {
 	Code    uint32 `json:"code"`
 	Message string `json:"message"`
@@ -39,6 +41,12 @@ func (r *Response) IsSuccessful() bool {
 	return r.Code >= 200 && r.Code < 300
 }
 
-func (r *Response) Marshal() ([]byte, error) {
-	return nil, nil
+func (r *Response) Marshal() []byte {
+	res := fmt.Sprintf(
+		"{\"code\":\"%d\",\"message\":\"%s\",\"data\":\"%s\"}",
+		r.Code,
+		r.Message,
+		r.Data)
+
+	return []byte(res)
 }
