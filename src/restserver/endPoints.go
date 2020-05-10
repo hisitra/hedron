@@ -1,14 +1,8 @@
 package restserver
 
 import (
-	"context"
-	"encoding/json"
-	"fmt"
 	"github.com/gorilla/mux"
-	"github.com/hisitra/hedron/src/comcn"
 	"github.com/hisitra/hedron/src/configs"
-	"github.com/hisitra/hedron/src/grpcserver"
-	iot "github.com/hisitra/hedron/src/iotranslator"
 	"log"
 	"net/http"
 )
@@ -34,65 +28,13 @@ func (s *server) getHandler() http.Handler {
 }
 
 func (s *server) Create(w http.ResponseWriter, r *http.Request) {
-	req := &comcn.Input{}
-	err := json.NewDecoder(r.Body).Decode(req)
-	if err != nil {
-		_, _ = fmt.Fprintln(w, iot.BadRequestResponse(""))
-		return
-	}
-
-	output, err := grpcserver.New().Create(context.Background(), req)
-	if err != nil {
-		_, _ = fmt.Fprintln(w, iot.InternalServerErrorResponse(err.Error()))
-		return
-	}
-	_, _ = fmt.Fprintln(w, output)
 }
 
 func (s *server) Read(w http.ResponseWriter, r *http.Request) {
-	req := &comcn.Input{}
-	err := json.NewDecoder(r.Body).Decode(req)
-	if err != nil {
-		_, _ = fmt.Fprintln(w, iot.BadRequestResponse(""))
-		return
-	}
-
-	output, err := grpcserver.New().Read(context.Background(), req)
-	if err != nil {
-		_, _ = fmt.Fprintln(w, iot.InternalServerErrorResponse(err.Error()))
-		return
-	}
-	_, _ = fmt.Fprintln(w, output)
 }
 
 func (s *server) Update(w http.ResponseWriter, r *http.Request) {
-	req := &comcn.Input{}
-	err := json.NewDecoder(r.Body).Decode(req)
-	if err != nil {
-		_, _ = fmt.Fprintln(w, iot.BadRequestResponse(""))
-		return
-	}
-
-	output, err := grpcserver.New().Update(context.Background(), req)
-	if err != nil {
-		_, _ = fmt.Fprintln(w, iot.InternalServerErrorResponse(err.Error()))
-		return
-	}
-	_, _ = fmt.Fprintln(w, output)
 }
 
 func (s *server) Delete(w http.ResponseWriter, r *http.Request) {
-	req := &comcn.Input{}
-	err := json.NewDecoder(r.Body).Decode(req)
-	if err != nil {
-		_, _ = fmt.Fprintln(w, iot.BadRequestResponse(""))
-		return
-	}
-
-	output, err := grpcserver.New().Delete(context.Background(), req)
-	if err != nil {
-		_, _ = fmt.Fprintln(w, iot.InternalServerErrorResponse(err.Error()))
-		return
-	}
-	_, _ = fmt.Fprintln(w, output)
 }
