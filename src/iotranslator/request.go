@@ -57,7 +57,7 @@ func (r *Request) validate() *Response {
 		return BadRequestResponse("Empty key not allowed in Request.")
 	}
 	if r.Mode != "C" && r.Mode != "R" && r.Mode != "U" && r.Mode != "D" {
-		return BadRequestResponse("Invalid Request Type: "+r.Mode)
+		return BadRequestResponse("Invalid Request Type: " + r.Mode)
 	}
 	return SuccessResponse("")
 }

@@ -6,7 +6,7 @@ type Response struct {
 	Data    string `json:"data"`
 }
 
-func NewResponse(code uint32, message string, data string) *Response{
+func NewResponse(code uint32, message string, data string) *Response {
 	return &Response{
 		Code:    code,
 		Message: message,
