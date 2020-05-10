@@ -5,8 +5,4 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-docker build -t shivansh-hedron:$1 .
-
-
-
-
+docker build -t shivansh-hedron:"$1" .
