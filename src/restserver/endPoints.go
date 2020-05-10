@@ -1,8 +1,14 @@
 package restserver
 
 import (
+	"context"
+	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/hisitra/hedron/src/comcn"
 	"github.com/hisitra/hedron/src/configs"
+	"github.com/hisitra/hedron/src/grpcserver"
+	iot "github.com/hisitra/hedron/src/iotranslator"
+	"io/ioutil"
 	"log"
 	"net/http"
 )
@@ -28,17 +34,101 @@ func (s *server) getHandler() http.Handler {
 }
 
 func (s *server) Create(w http.ResponseWriter, r *http.Request) {
-	panic("implement me")
+	reqJSON, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		_, _ = fmt.Fprintln(w, iot.BadRequestResponse("Failed to decode request"))
+		return
+	}
+
+	res, err := grpcserver.New().Create(
+		context.Background(),
+		&comcn.Message{Value: reqJSON})
+
+	if err != nil {
+		_, err = w.Write(iot.InternalServerResponse("").Marshal())
+		if err != nil {
+			w.WriteHeader(500)
+		}
+		return
+	}
+
+	_, err = w.Write(res.Value)
+	if err != nil {
+		w.WriteHeader(500)
+	}
 }
 
 func (s *server) Read(w http.ResponseWriter, r *http.Request) {
-	panic("implement me")
+	reqJSON, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		_, _ = fmt.Fprintln(w, iot.BadRequestResponse("Failed to decode request"))
+		return
+	}
+
+	res, err := grpcserver.New().Read(
+		context.Background(),
+		&comcn.Message{Value: reqJSON})
+
+	if err != nil {
+		_, err = w.Write(iot.InternalServerResponse("").Marshal())
+		if err != nil {
+			w.WriteHeader(500)
+		}
+		return
+	}
+
+	_, err = w.Write(res.Value)
+	if err != nil {
+		w.WriteHeader(500)
+	}
 }
 
 func (s *server) Update(w http.ResponseWriter, r *http.Request) {
-	panic("implement me")
+	reqJSON, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		_, _ = fmt.Fprintln(w, iot.BadRequestResponse("Failed to decode request"))
+		return
+	}
+
+	res, err := grpcserver.New().Update(
+		context.Background(),
+		&comcn.Message{Value: reqJSON})
+
+	if err != nil {
+		_, err = w.Write(iot.InternalServerResponse("").Marshal())
+		if err != nil {
+			w.WriteHeader(500)
+		}
+		return
+	}
+
+	_, err = w.Write(res.Value)
+	if err != nil {
+		w.WriteHeader(500)
+	}
 }
 
 func (s *server) Delete(w http.ResponseWriter, r *http.Request) {
-	panic("implement me")
+	reqJSON, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		_, _ = fmt.Fprintln(w, iot.BadRequestResponse("Failed to decode request"))
+		return
+	}
+
+	res, err := grpcserver.New().Delete(
+		context.Background(),
+		&comcn.Message{Value: reqJSON})
+
+	if err != nil {
+		_, err = w.Write(iot.InternalServerResponse("").Marshal())
+		if err != nil {
+			w.WriteHeader(500)
+		}
+		return
+	}
+
+	_, err = w.Write(res.Value)
+	if err != nil {
+		w.WriteHeader(500)
+	}
 }

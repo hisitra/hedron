@@ -21,7 +21,7 @@ func NewRequest(data []byte, mode string) (*Request, *Response) {
 	newReq := &Request{}
 	err := json.Unmarshal(data, newReq)
 	if err != nil {
-		return nil, BadRequestResponse("Failed to Unmarshal")
+		return nil, BadRequestResponse("Failed to unmarshal request")
 	}
 	newReq.Mode = mode
 
@@ -41,7 +41,7 @@ func UnmarshalRequest(data []byte) (*Request, *Response) {
 	req := &Request{}
 	err := json.Unmarshal(data, req)
 	if err != nil {
-		return nil, BadRequestResponse("Failed to unmarshal")
+		return nil, BadRequestResponse("Failed to unmarshal request")
 	}
 
 	if res := req.validate(); !res.IsSuccessful() {
@@ -54,10 +54,10 @@ func UnmarshalRequest(data []byte) (*Request, *Response) {
 func (r *Request) validate() *Response {
 	// TODO: Validate key and value using Regex.
 	if r.Key == "" {
-		return BadRequestResponse("Empty key not allowed in Request.")
+		return BadRequestResponse("Empty key not allowed in request")
 	}
 	if r.Mode != "C" && r.Mode != "R" && r.Mode != "U" && r.Mode != "D" {
-		return BadRequestResponse("Invalid Request Type: " + r.Mode)
+		return BadRequestResponse("Invalid request type: " + r.Mode)
 	}
 	return SuccessResponse("")
 }

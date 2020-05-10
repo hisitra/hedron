@@ -1,6 +1,7 @@
 package grpcserver
 
 import (
+	"context"
 	"github.com/hisitra/hedron/src/comcn"
 	"github.com/hisitra/hedron/src/configs"
 	"google.golang.org/grpc"
@@ -14,6 +15,14 @@ type server struct {
 
 type Server interface {
 	Start()
+
+	Create(ctx context.Context, message *comcn.Message) (*comcn.Message, error)
+	Read(ctx context.Context, message *comcn.Message) (*comcn.Message, error)
+	Update(ctx context.Context, message *comcn.Message) (*comcn.Message, error)
+	Delete(ctx context.Context, message *comcn.Message) (*comcn.Message, error)
+
+	Get(ctx context.Context, message *comcn.Message) (*comcn.Message, error)
+	Set(ctx context.Context, message *comcn.Message) (*comcn.Message, error)
 }
 
 func New() Server {

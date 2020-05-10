@@ -14,3 +14,8 @@ type node struct {
 type storage struct {
 	BaseLocation string `json:"baseLocation"`
 }
+
+type events struct {
+	RequestArrival string
+	RequestExecuted string
+}
