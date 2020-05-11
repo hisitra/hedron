@@ -11,7 +11,6 @@ func main() {
 	configs.Load()
 	executionmanager.Start()
 
-
 	go restserver.New().Start()
 	grpcserver.New().Start()
 }

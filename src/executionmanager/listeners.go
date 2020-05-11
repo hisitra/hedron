@@ -7,6 +7,9 @@ import (
 	"log"
 )
 
+// TODO: Update Ventager for ListenAll and ListenOne methods.
+// ListenOne channels are deleted after a single fire.
+
 func Start() {
 	go func() {
 		for {
