@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+message Response {
+  int64 StatusCode = 1;
+  string CustomCode = 2;
+  string Message = 3;
+  bytes Data = 4;
+}
+
+message ExternalGetRequestElement {
+  string ID = 1;
+  string ControllerID = 2;
+  string Key = 3;
+}
+
+message ExternalGetRequest {
+  repeated ExternalGetRequestElement Data = 1;
+}
+
+message ExternalSetRequestElement {
+  string ID = 1;
+  string ControllerID = 2;
+  string Key = 3;
+  string Value = 4;
+}
+
+message ExternalSetRequest {
+  repeated ExternalSetRequestElement Data = 1;
+}
+
+service External {
+  rpc Get(ExternalGetRequest) returns (Response);
+  rpc Set(ExternalSetRequest) returns (Response);
+}

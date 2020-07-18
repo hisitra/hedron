@@ -3,6 +3,7 @@ package grpcserver
 import (
 	"github.com/hisitra/hedron/src/configs"
 	"github.com/hisitra/hedron/src/logan"
+	protocom "github.com/hisitra/hedron/src/protos"
 	"google.golang.org/grpc"
 	"net"
 )
@@ -30,7 +31,7 @@ func (s *server) Start() {
 	grpcServer := grpc.NewServer()
 
 	// register the servers here
-	// example.RegisterExampleServer(grpcServer, s)
+	protocom.RegisterExternalServer(grpcServer, s)
 
 	logan.Info.Println("Starting gRPC Server at PORT:", s.Port)
 	err = grpcServer.Serve(listener)

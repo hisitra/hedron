@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-message Greet {
-  string Value = 1;
-}
-
-service Example {
-  rpc SayHi(Greet) returns(Greet);
-}
