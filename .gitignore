@@ -1,2 +1,2 @@
 bin
-storage
+scripts/prod_configs.env
