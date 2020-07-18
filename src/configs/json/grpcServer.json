@@ -1,0 +1,7 @@
+{
+  "port": {
+    "info": "gRPC Server Port",
+    "default": "NA",
+    "env": "REST_PORT"
+  }
+}
