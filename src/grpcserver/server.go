@@ -1,6 +1,7 @@
 package grpcserver
 
 import (
+	"context"
 	"github.com/hisitra/hedron/src/configs"
 	"github.com/hisitra/hedron/src/logan"
 	protocom "github.com/hisitra/hedron/src/protos"
@@ -15,7 +16,8 @@ type server struct {
 type Server interface {
 	Start()
 
-	// All RPC signatures here
+	Get(ctx context.Context, request *protocom.ExternalGetRequest) (*protocom.Response, error)
+	Set(ctx context.Context, request *protocom.ExternalSetRequest) (*protocom.Response, error)
 }
 
 func New() Server {
