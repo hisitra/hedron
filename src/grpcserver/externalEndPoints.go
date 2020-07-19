@@ -8,20 +8,10 @@ import (
 
 func (s *server) Get(ctx context.Context, request *protocom.ExternalGetRequest) (*protocom.Response, error) {
 	logan.Info.Println("Get request arrived")
-	return &protocom.Response{
-		StatusCode: 0,
-		CustomCode: "",
-		Message:    "",
-		Data:       nil,
-	}, nil
+	return &protocom.Response{}, nil
 }
 
 func (s *server) Set(ctx context.Context, request *protocom.ExternalSetRequest) (*protocom.Response, error) {
 	logan.Info.Println("Set request arrived")
-	return &protocom.Response{
-		StatusCode: 0,
-		CustomCode: "",
-		Message:    "",
-		Data:       nil,
-	}, nil
+	return &protocom.Response{}, nil
 }
