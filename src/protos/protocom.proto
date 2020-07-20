@@ -39,8 +39,8 @@ message AskVoteRequest {
 }
 
 service Internal {
-  rpc Get(InternalGetRequest) returns (Response);
-  rpc Set(InternalGetRequest) returns (Response);
+  rpc InternalGet(InternalGetRequest) returns (Response);
+  rpc InternalSet(InternalGetRequest) returns (Response);
   rpc SendLeaderHeartbeat(LeaderHeartbeatRequest) returns (Response);
   rpc AskVote(AskVoteRequest) returns (Response);
 }

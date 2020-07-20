@@ -18,6 +18,8 @@ type Server interface {
 
 	Get(ctx context.Context, request *protocom.ExternalGetRequest) (*protocom.Response, error)
 	Set(ctx context.Context, request *protocom.ExternalSetRequest) (*protocom.Response, error)
+
+
 }
 
 func New() Server {
