@@ -16,10 +16,15 @@ type server struct {
 type Server interface {
 	Start()
 
+	// External End Points
 	Get(ctx context.Context, request *protocom.ExternalGetRequest) (*protocom.Response, error)
 	Set(ctx context.Context, request *protocom.ExternalSetRequest) (*protocom.Response, error)
 
-
+	// Internal End Points
+	InternalGet(ctx context.Context, request *protocom.InternalGetRequest) (*protocom.Response, error)
+	InternalSet(ctx context.Context, request *protocom.InternalGetRequest) (*protocom.Response, error)
+	SendLeaderHeartbeat(ctx context.Context, request *protocom.LeaderHeartbeatRequest) (*protocom.Response, error)
+	AskVote(ctx context.Context, request *protocom.AskVoteRequest) (*protocom.Response, error)
 }
 
 func New() Server {
@@ -36,6 +41,7 @@ func (s *server) Start() {
 
 	// register the servers here
 	protocom.RegisterExternalServer(grpcServer, s)
+	protocom.RegisterInternalServer(grpcServer, s)
 
 	logan.Info.Println("Starting gRPC Server at PORT:", s.Port)
 	err = grpcServer.Serve(listener)
