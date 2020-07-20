@@ -7,28 +7,40 @@ message Response {
   bytes Data = 4;
 }
 
-message ExternalGetRequestElement {
-  string ID = 1;
-  string ControllerID = 2;
-  string Key = 3;
-}
-
 message ExternalGetRequest {
-  repeated ExternalGetRequestElement Data = 1;
-}
-
-message ExternalSetRequestElement {
-  string ID = 1;
-  string ControllerID = 2;
-  string Key = 3;
-  string Value = 4;
+  string Key = 1;
 }
 
 message ExternalSetRequest {
-  repeated ExternalSetRequestElement Data = 1;
+  string Key = 1;
+  string Value = 2;
 }
 
 service External {
   rpc Get(ExternalGetRequest) returns (Response);
   rpc Set(ExternalSetRequest) returns (Response);
+}
+
+message InternalGetRequest {
+  string NodeID = 1;
+  int64 Term = 2;
+  string key = 3;
+}
+
+message LeaderHeartbeatRequest {
+  string NodeID = 1;
+  int64 Term = 2;
+  string key = 3;
+}
+
+message AskVoteRequest {
+  string NodeID = 1;
+  int64 Term = 2;
+}
+
+service Internal {
+  rpc Get(InternalGetRequest) returns (Response);
+  rpc Set(InternalGetRequest) returns (Response);
+  rpc SendLeaderHeartbeat(LeaderHeartbeatRequest) returns (Response);
+  rpc AskVote(AskVoteRequest) returns (Response);
 }

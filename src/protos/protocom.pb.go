@@ -87,73 +87,18 @@ func (m *Response) GetData() []byte {
 	return nil
 }
 
-type ExternalGetRequestElement struct {
-	ID                   string   `protobuf:"bytes,1,opt,name=ID,json=iD,proto3" json:"ID,omitempty"`
-	ControllerID         string   `protobuf:"bytes,2,opt,name=ControllerID,json=controllerID,proto3" json:"ControllerID,omitempty"`
-	Key                  string   `protobuf:"bytes,3,opt,name=Key,json=key,proto3" json:"Key,omitempty"`
+type ExternalGetRequest struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=Key,json=key,proto3" json:"Key,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *ExternalGetRequestElement) Reset()         { *m = ExternalGetRequestElement{} }
-func (m *ExternalGetRequestElement) String() string { return proto.CompactTextString(m) }
-func (*ExternalGetRequestElement) ProtoMessage()    {}
-func (*ExternalGetRequestElement) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b3d33cdd7d7944cd, []int{1}
-}
-
-func (m *ExternalGetRequestElement) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ExternalGetRequestElement.Unmarshal(m, b)
-}
-func (m *ExternalGetRequestElement) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ExternalGetRequestElement.Marshal(b, m, deterministic)
-}
-func (m *ExternalGetRequestElement) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ExternalGetRequestElement.Merge(m, src)
-}
-func (m *ExternalGetRequestElement) XXX_Size() int {
-	return xxx_messageInfo_ExternalGetRequestElement.Size(m)
-}
-func (m *ExternalGetRequestElement) XXX_DiscardUnknown() {
-	xxx_messageInfo_ExternalGetRequestElement.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ExternalGetRequestElement proto.InternalMessageInfo
-
-func (m *ExternalGetRequestElement) GetID() string {
-	if m != nil {
-		return m.ID
-	}
-	return ""
-}
-
-func (m *ExternalGetRequestElement) GetControllerID() string {
-	if m != nil {
-		return m.ControllerID
-	}
-	return ""
-}
-
-func (m *ExternalGetRequestElement) GetKey() string {
-	if m != nil {
-		return m.Key
-	}
-	return ""
-}
-
-type ExternalGetRequest struct {
-	Data                 []*ExternalGetRequestElement `protobuf:"bytes,1,rep,name=Data,json=data,proto3" json:"Data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                     `json:"-"`
-	XXX_unrecognized     []byte                       `json:"-"`
-	XXX_sizecache        int32                        `json:"-"`
 }
 
 func (m *ExternalGetRequest) Reset()         { *m = ExternalGetRequest{} }
 func (m *ExternalGetRequest) String() string { return proto.CompactTextString(m) }
 func (*ExternalGetRequest) ProtoMessage()    {}
 func (*ExternalGetRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b3d33cdd7d7944cd, []int{2}
+	return fileDescriptor_b3d33cdd7d7944cd, []int{1}
 }
 
 func (m *ExternalGetRequest) XXX_Unmarshal(b []byte) error {
@@ -174,88 +119,26 @@ func (m *ExternalGetRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_ExternalGetRequest proto.InternalMessageInfo
 
-func (m *ExternalGetRequest) GetData() []*ExternalGetRequestElement {
-	if m != nil {
-		return m.Data
-	}
-	return nil
-}
-
-type ExternalSetRequestElement struct {
-	ID                   string   `protobuf:"bytes,1,opt,name=ID,json=iD,proto3" json:"ID,omitempty"`
-	ControllerID         string   `protobuf:"bytes,2,opt,name=ControllerID,json=controllerID,proto3" json:"ControllerID,omitempty"`
-	Key                  string   `protobuf:"bytes,3,opt,name=Key,json=key,proto3" json:"Key,omitempty"`
-	Value                string   `protobuf:"bytes,4,opt,name=Value,json=value,proto3" json:"Value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *ExternalSetRequestElement) Reset()         { *m = ExternalSetRequestElement{} }
-func (m *ExternalSetRequestElement) String() string { return proto.CompactTextString(m) }
-func (*ExternalSetRequestElement) ProtoMessage()    {}
-func (*ExternalSetRequestElement) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b3d33cdd7d7944cd, []int{3}
-}
-
-func (m *ExternalSetRequestElement) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ExternalSetRequestElement.Unmarshal(m, b)
-}
-func (m *ExternalSetRequestElement) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ExternalSetRequestElement.Marshal(b, m, deterministic)
-}
-func (m *ExternalSetRequestElement) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ExternalSetRequestElement.Merge(m, src)
-}
-func (m *ExternalSetRequestElement) XXX_Size() int {
-	return xxx_messageInfo_ExternalSetRequestElement.Size(m)
-}
-func (m *ExternalSetRequestElement) XXX_DiscardUnknown() {
-	xxx_messageInfo_ExternalSetRequestElement.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ExternalSetRequestElement proto.InternalMessageInfo
-
-func (m *ExternalSetRequestElement) GetID() string {
-	if m != nil {
-		return m.ID
-	}
-	return ""
-}
-
-func (m *ExternalSetRequestElement) GetControllerID() string {
-	if m != nil {
-		return m.ControllerID
-	}
-	return ""
-}
-
-func (m *ExternalSetRequestElement) GetKey() string {
+func (m *ExternalGetRequest) GetKey() string {
 	if m != nil {
 		return m.Key
 	}
 	return ""
 }
 
-func (m *ExternalSetRequestElement) GetValue() string {
-	if m != nil {
-		return m.Value
-	}
-	return ""
-}
-
 type ExternalSetRequest struct {
-	Data                 []*ExternalSetRequestElement `protobuf:"bytes,1,rep,name=Data,json=data,proto3" json:"Data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                     `json:"-"`
-	XXX_unrecognized     []byte                       `json:"-"`
-	XXX_sizecache        int32                        `json:"-"`
+	Key                  string   `protobuf:"bytes,1,opt,name=Key,json=key,proto3" json:"Key,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=Value,json=value,proto3" json:"Value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ExternalSetRequest) Reset()         { *m = ExternalSetRequest{} }
 func (m *ExternalSetRequest) String() string { return proto.CompactTextString(m) }
 func (*ExternalSetRequest) ProtoMessage()    {}
 func (*ExternalSetRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b3d33cdd7d7944cd, []int{4}
+	return fileDescriptor_b3d33cdd7d7944cd, []int{2}
 }
 
 func (m *ExternalSetRequest) XXX_Unmarshal(b []byte) error {
@@ -276,19 +159,184 @@ func (m *ExternalSetRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_ExternalSetRequest proto.InternalMessageInfo
 
-func (m *ExternalSetRequest) GetData() []*ExternalSetRequestElement {
+func (m *ExternalSetRequest) GetKey() string {
 	if m != nil {
-		return m.Data
+		return m.Key
 	}
-	return nil
+	return ""
+}
+
+func (m *ExternalSetRequest) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type InternalGetRequest struct {
+	NodeID               string   `protobuf:"bytes,1,opt,name=NodeID,json=nodeID,proto3" json:"NodeID,omitempty"`
+	Term                 int64    `protobuf:"varint,2,opt,name=Term,json=term,proto3" json:"Term,omitempty"`
+	Key                  string   `protobuf:"bytes,3,opt,name=key,proto3" json:"key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *InternalGetRequest) Reset()         { *m = InternalGetRequest{} }
+func (m *InternalGetRequest) String() string { return proto.CompactTextString(m) }
+func (*InternalGetRequest) ProtoMessage()    {}
+func (*InternalGetRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b3d33cdd7d7944cd, []int{3}
+}
+
+func (m *InternalGetRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InternalGetRequest.Unmarshal(m, b)
+}
+func (m *InternalGetRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InternalGetRequest.Marshal(b, m, deterministic)
+}
+func (m *InternalGetRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InternalGetRequest.Merge(m, src)
+}
+func (m *InternalGetRequest) XXX_Size() int {
+	return xxx_messageInfo_InternalGetRequest.Size(m)
+}
+func (m *InternalGetRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_InternalGetRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InternalGetRequest proto.InternalMessageInfo
+
+func (m *InternalGetRequest) GetNodeID() string {
+	if m != nil {
+		return m.NodeID
+	}
+	return ""
+}
+
+func (m *InternalGetRequest) GetTerm() int64 {
+	if m != nil {
+		return m.Term
+	}
+	return 0
+}
+
+func (m *InternalGetRequest) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+type LeaderHeartbeatRequest struct {
+	NodeID               string   `protobuf:"bytes,1,opt,name=NodeID,json=nodeID,proto3" json:"NodeID,omitempty"`
+	Term                 int64    `protobuf:"varint,2,opt,name=Term,json=term,proto3" json:"Term,omitempty"`
+	Key                  string   `protobuf:"bytes,3,opt,name=key,proto3" json:"key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *LeaderHeartbeatRequest) Reset()         { *m = LeaderHeartbeatRequest{} }
+func (m *LeaderHeartbeatRequest) String() string { return proto.CompactTextString(m) }
+func (*LeaderHeartbeatRequest) ProtoMessage()    {}
+func (*LeaderHeartbeatRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b3d33cdd7d7944cd, []int{4}
+}
+
+func (m *LeaderHeartbeatRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LeaderHeartbeatRequest.Unmarshal(m, b)
+}
+func (m *LeaderHeartbeatRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LeaderHeartbeatRequest.Marshal(b, m, deterministic)
+}
+func (m *LeaderHeartbeatRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LeaderHeartbeatRequest.Merge(m, src)
+}
+func (m *LeaderHeartbeatRequest) XXX_Size() int {
+	return xxx_messageInfo_LeaderHeartbeatRequest.Size(m)
+}
+func (m *LeaderHeartbeatRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_LeaderHeartbeatRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LeaderHeartbeatRequest proto.InternalMessageInfo
+
+func (m *LeaderHeartbeatRequest) GetNodeID() string {
+	if m != nil {
+		return m.NodeID
+	}
+	return ""
+}
+
+func (m *LeaderHeartbeatRequest) GetTerm() int64 {
+	if m != nil {
+		return m.Term
+	}
+	return 0
+}
+
+func (m *LeaderHeartbeatRequest) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+type AskVoteRequest struct {
+	NodeID               string   `protobuf:"bytes,1,opt,name=NodeID,json=nodeID,proto3" json:"NodeID,omitempty"`
+	Term                 int64    `protobuf:"varint,2,opt,name=Term,json=term,proto3" json:"Term,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *AskVoteRequest) Reset()         { *m = AskVoteRequest{} }
+func (m *AskVoteRequest) String() string { return proto.CompactTextString(m) }
+func (*AskVoteRequest) ProtoMessage()    {}
+func (*AskVoteRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b3d33cdd7d7944cd, []int{5}
+}
+
+func (m *AskVoteRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AskVoteRequest.Unmarshal(m, b)
+}
+func (m *AskVoteRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AskVoteRequest.Marshal(b, m, deterministic)
+}
+func (m *AskVoteRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AskVoteRequest.Merge(m, src)
+}
+func (m *AskVoteRequest) XXX_Size() int {
+	return xxx_messageInfo_AskVoteRequest.Size(m)
+}
+func (m *AskVoteRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AskVoteRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AskVoteRequest proto.InternalMessageInfo
+
+func (m *AskVoteRequest) GetNodeID() string {
+	if m != nil {
+		return m.NodeID
+	}
+	return ""
+}
+
+func (m *AskVoteRequest) GetTerm() int64 {
+	if m != nil {
+		return m.Term
+	}
+	return 0
 }
 
 func init() {
 	proto.RegisterType((*Response)(nil), "Response")
-	proto.RegisterType((*ExternalGetRequestElement)(nil), "ExternalGetRequestElement")
 	proto.RegisterType((*ExternalGetRequest)(nil), "ExternalGetRequest")
-	proto.RegisterType((*ExternalSetRequestElement)(nil), "ExternalSetRequestElement")
 	proto.RegisterType((*ExternalSetRequest)(nil), "ExternalSetRequest")
+	proto.RegisterType((*InternalGetRequest)(nil), "InternalGetRequest")
+	proto.RegisterType((*LeaderHeartbeatRequest)(nil), "LeaderHeartbeatRequest")
+	proto.RegisterType((*AskVoteRequest)(nil), "AskVoteRequest")
 }
 
 func init() {
@@ -296,25 +344,28 @@ func init() {
 }
 
 var fileDescriptor_b3d33cdd7d7944cd = []byte{
-	// 287 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x92, 0x41, 0x4b, 0xc3, 0x40,
-	0x10, 0x85, 0x49, 0xb7, 0xb5, 0xcd, 0x58, 0x8a, 0x8c, 0x1e, 0x62, 0x0f, 0x12, 0x02, 0x85, 0x9c,
-	0x72, 0xa8, 0x3f, 0xa1, 0x29, 0xa5, 0x88, 0x97, 0x5d, 0x10, 0xaf, 0x6b, 0x3a, 0x88, 0x98, 0x64,
-	0x6b, 0x76, 0xa2, 0xed, 0xbf, 0x97, 0xae, 0x31, 0x56, 0x8c, 0x78, 0xf2, 0xb6, 0xf3, 0xde, 0x83,
-	0xf7, 0xed, 0x30, 0x30, 0xd9, 0x56, 0x86, 0x4d, 0x66, 0x8a, 0xc4, 0x3d, 0xa2, 0x1d, 0x8c, 0x24,
-	0xd9, 0xad, 0x29, 0x2d, 0xe1, 0x15, 0x80, 0x62, 0xcd, 0xb5, 0x5d, 0x98, 0x0d, 0x05, 0x5e, 0xe8,
-	0xc5, 0x42, 0x82, 0x6d, 0x95, 0x83, 0xbf, 0xa8, 0x2d, 0x9b, 0xc2, 0xf9, 0xbd, 0xd0, 0x8b, 0x7d,
-	0x09, 0x59, 0xab, 0x60, 0x00, 0xc3, 0x5b, 0xb2, 0x56, 0x3f, 0x52, 0x20, 0x9c, 0x39, 0x2c, 0x3e,
-	0x46, 0x44, 0xe8, 0xa7, 0x9a, 0x75, 0xd0, 0x0f, 0xbd, 0x78, 0x2c, 0xfb, 0x1b, 0xcd, 0x3a, 0xd2,
-	0x70, 0xb9, 0xdc, 0x31, 0x55, 0xa5, 0xce, 0x57, 0xc4, 0x92, 0x5e, 0x6a, 0xb2, 0xbc, 0xcc, 0xa9,
-	0xa0, 0x92, 0x71, 0x02, 0xbd, 0x75, 0xea, 0x10, 0x7c, 0xd9, 0x7b, 0x4a, 0x31, 0x82, 0xf1, 0xc2,
-	0x94, 0x5c, 0x99, 0x3c, 0xa7, 0x6a, 0x9d, 0x36, 0xe5, 0xe3, 0xec, 0x48, 0xc3, 0x33, 0x10, 0x37,
-	0xb4, 0x6f, 0xaa, 0xc5, 0x33, 0xed, 0xa3, 0x14, 0xf0, 0x67, 0x05, 0x26, 0x0d, 0x8c, 0x17, 0x8a,
-	0xf8, 0x74, 0x3e, 0x4d, 0x7e, 0xa5, 0x68, 0x40, 0xdf, 0xbe, 0x40, 0xd5, 0xff, 0x80, 0xe2, 0x05,
-	0x0c, 0xee, 0x74, 0x5e, 0x93, 0x5b, 0x90, 0x2f, 0x07, 0xaf, 0x87, 0xe1, 0x18, 0x5f, 0xfd, 0x8d,
-	0xaf, 0xba, 0xf1, 0xe7, 0xf7, 0x30, 0xfa, 0x8c, 0xe0, 0x0c, 0xc4, 0x8a, 0x18, 0xcf, 0x3b, 0xfe,
-	0x3c, 0xf5, 0x93, 0xf6, 0x10, 0x66, 0x20, 0xd4, 0xb7, 0x98, 0xea, 0x8a, 0x3d, 0x9c, 0xb8, 0x13,
-	0xba, 0x7e, 0x0f, 0x00, 0x00, 0xff, 0xff, 0xf8, 0xf1, 0x08, 0x70, 0x54, 0x02, 0x00, 0x00,
+	// 336 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x92, 0xcb, 0x4f, 0xc2, 0x40,
+	0x10, 0xc6, 0x53, 0xb7, 0xbc, 0x26, 0x06, 0xcd, 0x60, 0xb0, 0xf1, 0x60, 0x48, 0x13, 0x0c, 0xa7,
+	0x1e, 0xf0, 0x64, 0xc2, 0xc5, 0x80, 0x41, 0xe2, 0xe3, 0xb0, 0x35, 0xc4, 0xeb, 0x42, 0x27, 0x1e,
+	0xa0, 0x5d, 0xec, 0x4e, 0x0d, 0xfc, 0x6b, 0xfe, 0x75, 0xa6, 0x2b, 0x0f, 0x11, 0xc2, 0xc1, 0x78,
+	0xdb, 0x99, 0xf9, 0xf2, 0x7d, 0xb3, 0xbf, 0x5d, 0xa8, 0xce, 0x52, 0xcd, 0x7a, 0xac, 0xe3, 0xc0,
+	0x1e, 0xfc, 0x39, 0x94, 0x25, 0x99, 0x99, 0x4e, 0x0c, 0xe1, 0x25, 0x40, 0xc8, 0x8a, 0x33, 0xd3,
+	0xd5, 0x11, 0x79, 0x4e, 0xc3, 0x69, 0x09, 0x09, 0x66, 0xdd, 0xc9, 0xe7, 0xdd, 0xcc, 0xb0, 0x8e,
+	0xed, 0xfc, 0xa8, 0xe1, 0xb4, 0x2a, 0x12, 0xc6, 0xeb, 0x0e, 0x7a, 0x50, 0x7a, 0x22, 0x63, 0xd4,
+	0x1b, 0x79, 0xc2, 0x0e, 0x4b, 0xf1, 0x77, 0x89, 0x08, 0x6e, 0x4f, 0xb1, 0xf2, 0xdc, 0x86, 0xd3,
+	0x3a, 0x96, 0x6e, 0xa4, 0x58, 0xf9, 0x57, 0x80, 0x77, 0x73, 0xa6, 0x34, 0x51, 0xd3, 0x3e, 0xb1,
+	0xa4, 0xf7, 0x8c, 0x0c, 0xe3, 0x29, 0x88, 0x07, 0x5a, 0xd8, 0xf0, 0x8a, 0x14, 0x13, 0x5a, 0xf8,
+	0x9d, 0x8d, 0x2e, 0x3c, 0xa0, 0xc3, 0x33, 0x28, 0x0c, 0xd5, 0x34, 0x5b, 0x2d, 0x56, 0xf8, 0xc8,
+	0x0b, 0x5f, 0x02, 0x0e, 0x92, 0x9d, 0x94, 0x3a, 0x14, 0x9f, 0x75, 0x44, 0x83, 0xde, 0xd2, 0xa0,
+	0x98, 0xd8, 0x2a, 0xdf, 0xf3, 0x85, 0xd2, 0xd8, 0x5a, 0x08, 0xe9, 0x32, 0xa5, 0x71, 0x9e, 0x34,
+	0xa1, 0xc5, 0xf2, 0x46, 0x76, 0xa3, 0x21, 0xd4, 0x1f, 0x49, 0x45, 0x94, 0xde, 0x93, 0x4a, 0x79,
+	0x44, 0xea, 0x9f, 0x7c, 0x3b, 0x50, 0xbd, 0x35, 0x93, 0xa1, 0x66, 0xfa, 0x83, 0x5f, 0xfb, 0x15,
+	0xca, 0x2b, 0x4e, 0xd8, 0x04, 0xd1, 0x27, 0xc6, 0x5a, 0xb0, 0x4b, 0xf8, 0xa2, 0x12, 0xac, 0x1f,
+	0xbc, 0x09, 0x22, 0xdc, 0x92, 0x85, 0xfb, 0x64, 0xed, 0x4f, 0x07, 0xca, 0x2b, 0x88, 0x1b, 0xeb,
+	0x5d, 0xac, 0x7b, 0xad, 0x0f, 0xcb, 0x6e, 0xa0, 0x16, 0x52, 0x12, 0xfd, 0xc2, 0x89, 0xe7, 0xc1,
+	0x7e, 0xc0, 0xdb, 0x09, 0xa5, 0x25, 0x2d, 0x3c, 0x09, 0xb6, 0xb9, 0xfd, 0x90, 0x8d, 0x8a, 0xf6,
+	0x9f, 0x5f, 0x7f, 0x05, 0x00, 0x00, 0xff, 0xff, 0xfb, 0xed, 0xc6, 0x16, 0xf9, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -427,6 +478,186 @@ var _External_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Set",
 			Handler:    _External_Set_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "protocom.proto",
+}
+
+// InternalClient is the client API for Internal service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type InternalClient interface {
+	Get(ctx context.Context, in *InternalGetRequest, opts ...grpc.CallOption) (*Response, error)
+	Set(ctx context.Context, in *InternalGetRequest, opts ...grpc.CallOption) (*Response, error)
+	SendLeaderHeartbeat(ctx context.Context, in *LeaderHeartbeatRequest, opts ...grpc.CallOption) (*Response, error)
+	AskVote(ctx context.Context, in *AskVoteRequest, opts ...grpc.CallOption) (*Response, error)
+}
+
+type internalClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInternalClient(cc grpc.ClientConnInterface) InternalClient {
+	return &internalClient{cc}
+}
+
+func (c *internalClient) Get(ctx context.Context, in *InternalGetRequest, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
+	err := c.cc.Invoke(ctx, "/Internal/Get", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *internalClient) Set(ctx context.Context, in *InternalGetRequest, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
+	err := c.cc.Invoke(ctx, "/Internal/Set", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *internalClient) SendLeaderHeartbeat(ctx context.Context, in *LeaderHeartbeatRequest, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
+	err := c.cc.Invoke(ctx, "/Internal/SendLeaderHeartbeat", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *internalClient) AskVote(ctx context.Context, in *AskVoteRequest, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
+	err := c.cc.Invoke(ctx, "/Internal/AskVote", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InternalServer is the server API for Internal service.
+type InternalServer interface {
+	Get(context.Context, *InternalGetRequest) (*Response, error)
+	Set(context.Context, *InternalGetRequest) (*Response, error)
+	SendLeaderHeartbeat(context.Context, *LeaderHeartbeatRequest) (*Response, error)
+	AskVote(context.Context, *AskVoteRequest) (*Response, error)
+}
+
+// UnimplementedInternalServer can be embedded to have forward compatible implementations.
+type UnimplementedInternalServer struct {
+}
+
+func (*UnimplementedInternalServer) Get(ctx context.Context, req *InternalGetRequest) (*Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (*UnimplementedInternalServer) Set(ctx context.Context, req *InternalGetRequest) (*Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Set not implemented")
+}
+func (*UnimplementedInternalServer) SendLeaderHeartbeat(ctx context.Context, req *LeaderHeartbeatRequest) (*Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendLeaderHeartbeat not implemented")
+}
+func (*UnimplementedInternalServer) AskVote(ctx context.Context, req *AskVoteRequest) (*Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AskVote not implemented")
+}
+
+func RegisterInternalServer(s *grpc.Server, srv InternalServer) {
+	s.RegisterService(&_Internal_serviceDesc, srv)
+}
+
+func _Internal_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InternalGetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InternalServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Internal/Get",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InternalServer).Get(ctx, req.(*InternalGetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Internal_Set_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InternalGetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InternalServer).Set(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Internal/Set",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InternalServer).Set(ctx, req.(*InternalGetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Internal_SendLeaderHeartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LeaderHeartbeatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InternalServer).SendLeaderHeartbeat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Internal/SendLeaderHeartbeat",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InternalServer).SendLeaderHeartbeat(ctx, req.(*LeaderHeartbeatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Internal_AskVote_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AskVoteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InternalServer).AskVote(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Internal/AskVote",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InternalServer).AskVote(ctx, req.(*AskVoteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _Internal_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "Internal",
+	HandlerType: (*InternalServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Get",
+			Handler:    _Internal_Get_Handler,
+		},
+		{
+			MethodName: "Set",
+			Handler:    _Internal_Set_Handler,
+		},
+		{
+			MethodName: "SendLeaderHeartbeat",
+			Handler:    _Internal_SendLeaderHeartbeat_Handler,
+		},
+		{
+			MethodName: "AskVote",
+			Handler:    _Internal_AskVote_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
